@@ -206,10 +206,80 @@
             border-bottom-color: #0078d4;
         }
 
+        /* --- Стилове, пренесени от изданието 2026 --- */
+        .deflist { margin: 22px 0; }
+        .def {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 28px;
+            padding: 16px 0;
+            border-top: 1px solid #e3f4ff;
+        }
+        .def:last-child { border-bottom: 1px solid #e3f4ff; }
+        .def .t { font-weight: 700; color: #0078d4; font-size: 1.05em; line-height: 1.35; }
+        .def .t .en { display: block; font-weight: 400; color: #999; font-size: 0.86em; margin-top: 2px; }
+        .def .d { color: #333; font-size: 1.02em; line-height: 1.5; }
+        .def .d .ex { color: #0086e6; }
+
+        .note {
+            border-top: 2px solid #e3f4ff;
+            padding-top: 14px;
+            margin-top: 26px;
+        }
+        .note .k {
+            font-size: 0.82em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #0078d4;
+            display: block;
+            margin-bottom: 7px;
+        }
+        .note p { margin: 0; font-size: 1.02em; color: #333; }
+
+        /* Пирамида на риска */
+        .tiers { margin: 24px 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+        .tier { color: #fff; padding: 15px 20px; border-radius: 4px; }
+        .tier .th { font-weight: 700; font-size: 1.06em; }
+        .tier .ts { font-size: 0.9em; opacity: 0.92; margin-top: 2px; }
+        .tier.l1 { background: #d62d1a; width: 54%; }
+        .tier.l2 { background: #005a9e; width: 69%; }
+        .tier.l3 { background: #0086e6; width: 84%; }
+        .tier.l4 { background: #9cccf0; width: 100%; color: #0a3d5c; }
+
+        /* Матрица допустимо / недопустимо */
+        .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 24px 0; }
+        .mcol { padding: 0 28px; }
+        .mcol:first-child { padding-left: 0; border-right: 2px solid #e3f4ff; }
+        .mcol h4 {
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #0078d4;
+            margin-bottom: 8px;
+        }
+        .mcol.no h4 { color: #d62d1a; }
+        .mitem { padding: 14px 0; border-top: 1px solid #e3f4ff; font-size: 1em; line-height: 1.45; color: #333; }
+        .mitem b { display: block; color: #0078d4; margin-bottom: 2px; }
+        .mcol.no .mitem b { color: #d62d1a; }
+
         @media (max-width: 768px) {
             .container {
                 padding: 30px 20px 80px 20px;
             }
+
+            .def, .matrix {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .mcol:first-child {
+                border-right: none;
+                border-bottom: 2px solid #e3f4ff;
+                padding-bottom: 10px;
+            }
+            .mcol { padding: 12px 0 0; }
+            .tier { width: 100% !important; }
 
             h1 { font-size: 1.8em; }
             h2 { font-size: 1.5em; }
@@ -231,28 +301,42 @@
 
         <!-- Slide 1 -->
         <div class="slide active">
+            <br>
+            <br>
+            <br>
             <h1>Приложения на изкуствения интелект в управлението на човешките ресурси</h1>
             <p class="subtitle">От Павел Иванов</p>
         </div>
 
-        <!-- Slide 2 -->
+        <!-- Slide 2 — въпросът (от изданието 2026) -->
+        <div class="slide">
+            <p style="text-align: center; font-size: 1.8em; color: #0078d4; font-weight: 500; margin-top: 180px;">Кандидатствали ли сте за работа през последните две години?</p>
+        </div>
+
+        <!-- Slide 3 — въпросът + отговорът (ефект на анимация) -->
+        <div class="slide">
+            <p style="text-align: center; font-size: 1.8em; color: #0078d4; font-weight: 500; margin-top: 140px;">Кандидатствали ли сте за работа през последните две години?</p>
+            <p style="text-align: center; font-size: 1.3em; color: #666; margin-top: 40px;">Автобиографията ви почти сигурно беше прочетена първо от <strong style="color: #0078d4;">машина</strong> — не от човек.</p>
+        </div>
+
+        <!-- Slide 4 -->
         <div class="slide">
             <h2>Важни термини</h2>
             <ul>
                 <li>
                     <span class="term">Artificial Intelligence (AI) – Изкуствен интелект</span>
-                    Област в компютърните науки, която създава машини, способни да изпълняват задачи, които обикновено изискват човешки интелект, като разпознаване на образи, разбиране на текст или вземане на решения.<br>
+                    Технология, която позволява на компютрите да вършат неща, за които обикновено е нужен човешки ум — да разбират реч, да разпознават образи или да вземат решения.<br>
                     <span class="example">Примери:</span> гласови асистенти като Siri, препоръки в Netflix.
                 </li>
                 <li>
                     <span class="term">Machine Learning (Машинно обучение)</span>
-                    Метод за обучение на компютри да разпознават модели в данни и да вземат решения без да са програмирани стъпка по стъпка.<br>
-                    <span class="example">Пример:</span> филтриране на спам имейли, прогнозиране на времето.
+                    Компютърът се учи сам от примери, вместо да му казваме правилата — колкото повече данни види, толкова по-добър става.<br>
+                    <span class="example">Пример:</span> имейлът ви се научава кои съобщения са спам, като гледа кои сте маркирали като спам.
                 </li>
                 <li>
                     <span class="term">Deep Learning (Дълбоко обучение)</span>
-                    Подвид на машинното обучение, използващ многослойни невронни мрежи за обработка на големи обеми данни.<br>
-                    <span class="example">Пример:</span> автономни автомобили.
+                    По-мощен вид машинно обучение, който сам открива сложни закономерности в снимки, звук и текст.<br>
+                    <span class="example">Пример:</span> отключването на телефона със снимка на лицето ви (Face ID).
                 </li>
             </ul>
         </div>
@@ -263,21 +347,29 @@
             <ul>
                 <li>
                     <span class="term">Neural Networks (Невронни мрежи)</span>
-                    Модели вдъхновени от човешкия мозък, състоящи се от свързани „неврони", които обработват информация през слоеве.<br>
+                    Начинът, по който компютърът обработва информация през слоеве от свързани „неврони" — идеята е вдъхновена от човешкия мозък.<br>
                     <span class="example">Пример:</span> разпознаване на ръкописни цифри или лица.<br>
                     <a href="https://www.bulovic.at/cnn/" target="_blank">→ Интерактивна визуализация на невронна мрежа</a>
                 </li>
                 <li>
                     <span class="term">Supervised Learning (Обучение с учител)</span>
-                    Метод, при който моделът се обучава с входни данни и известни изходи (етикети), за да предсказва правилния резултат за нови данни.<br>
-                    <span class="example">Пример:</span> разпознаване на котки и кучета по снимки.
+                    Показваме на компютъра много примери с готови верни отговори, за да се научи сам да дава правилния отговор на нови случаи.<br>
+                    <span class="example">Пример:</span> показваме му хиляди снимки на котки; след това му даваме снимка на куче и той разбира, че това не е котка.
                 </li>
                 <li>
                     <span class="term">Unsupervised Learning (Обучение без учител)</span>
-                    Метод, при който моделът намира структури и групи в данните без предоставени етикети.<br>
-                    <span class="example">Пример:</span> групиране на клиенти според потребителското поведение.
+                    Даваме на компютъра данни без никакви отговори и той сам намира прилики и сам ги подрежда на групи.<br>
+                    <span class="example">Пример:</span> магазин разделя клиентите си на групи със сходно поведение, без предварително да е казал какви групи търси.
                 </li>
             </ul>
+        </div>
+
+        <!-- Slide — Интерактивна невронна мрежа (вграден демо) -->
+        <div class="slide">
+            <h2>Невронна мрежа на живо</h2>
+            <p>Нарисувайте цифра с мишката и вижте как мрежата я разпознава в реално време.</p>
+            <iframe src="https://www.usingandunderstanding.ai/embed/digit-network" style="width:100%;height:760px;border:1px solid #ddd;border-radius:6px;margin-top:10px;" title="Digit Recognition Network" loading="lazy"></iframe>
+            <br>
         </div>
 
         <!-- Slide 4 -->
@@ -286,18 +378,28 @@
             <ul>
                 <li>
                     <span class="term">Reinforcement Learning (Обучение чрез подсилване)</span>
-                    Машината се учи чрез проба-грешка и получаване на награди или наказания, за да максимизира желан резултат.<br>
-                    <span class="example">Пример:</span> игра на шах от AI, автономни роботи.
+                    Компютърът се учи чрез проба-грешка — за добрите ходове получава „награда", за лошите „наказание", и постепенно се усъвършенства.<br>
+                    <span class="example">Пример:</span> AI се научава да играе шах, като изиграва милиони партии срещу себе си.
                 </li>
                 <li>
                     <span class="term">Language Model (Езиков модел)</span>
-                    Вид изкуствен интелект, обучен да разбира и генерира човешки текст. Моделът се обучава върху огромни количества текстови данни, за да научи зависимостите между думите, граматическите структури и смисловите връзки.<br>
+                    Изкуствен интелект, обучен върху огромно количество текст, който разбира и пише на човешки език.<br>
                     <span class="example">Пример:</span> ChatGPT.
                 </li>
                 <li>
                     <span class="term">Prompt Engineering (Проектиране на заявки)</span>
-                    Процесът на проектиране и оптимизиране на инструкциите, които подаваме на езиков модел, за да получим желаните резултати.<br>
-                    <span class="example">Пример:</span> формулиране на точни въпроси към ChatGPT, за да получим структурирани отговори.
+                    Умението да задаваш ясни и точни инструкции на AI, за да получиш полезен отговор.<br>
+                    <span class="example">Пример:</span> вместо „напиши за обява за работа" → „напиши обява за HR мениджър, с 5 изисквания и дружелюбен тон".
+                </li>
+                <li>
+                    <span class="term">Токени (Tokens)</span>
+                    Текстът се разбива на токени — не винаги цели думи, понякога части от тях.<br>
+                    <span class="example">Пример:</span> „Дълбочинно" ≈ 3 токена; GPT-4 обработва до 128 000 токена (~95 000 думи) наведнъж.
+                </li>
+                <li>
+                    <span class="term">Агент (AI Agent)</span>
+                    Изкуствен интелект, който не само отговаря, а сам изпълнява задачи — планира стъпки и действа (търси, пише, изпраща), докато постигне целта.<br>
+                    <span class="example">Пример:</span> казвате „организирай интервю" и агентът сам намира кандидати, пише им имейл и предлага часове.
                 </li>
             </ul>
         </div>
@@ -400,7 +502,87 @@
 
         <!-- Slide 8 -->
         <div class="slide">
-            <h2>Създаване на обява за работа с AI</h2>
+            <h2>Полезни инструменти - Агенти</h2>
+
+            <div class="tool-card">
+                <h4>Claude Code</h4>
+                <p>Агент, който разбира цяла кодова база, поправя грешки и стартира тестове самостоятелно. Използва се в терминал и среди за разработка.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>Cursor</h4>
+                <p>Редактор на код с вграден AI агент — пише, редактира и обяснява код директно в проекта.</p>
+            </div>
+
+
+            <div class="tool-card">
+                <h4>SAP Joule</h4>
+                <p>Бизнес AI асистент от САП.</p>
+            </div>
+
+        </div>
+
+        <!-- Slide — Преход: защо Amazon изхвърли инструмента (от изданието 2026) -->
+        <div class="slide">
+            <div style="padding: 60px 0;">
+                <p style="font-size: 1.9em; font-weight: 500; line-height: 1.3; color: #999;">Щом ИИ е толкова полезен…</p>
+                <p style="font-size: 1.9em; font-weight: 500; line-height: 1.3; color: #333; margin-top: 24px;">защо <span style="color: #0078d4;">Amazon</span> изхвърли собствения си ИИ инструмент за подбор?</p>
+                <div class="note"><span class="k">Бърза анкета</span><p>Вашата хипотеза — технически проблем, или нещо по-дълбоко?</p></div>
+            </div>
+        </div>
+
+        <!-- Slide — Казус: Amazon (от изданието 2026) -->
+        <div class="slide">
+            <h2>Казус: Amazon</h2>
+            <p>Amazon изгражда вътрешен ИИ инструмент (2014 г.), който автоматично оценява и класира автобиографии. Системата се обучава върху 10 години исторически данни за наемане — предимно мъже на инженерни позиции.</p>
+            <p>Резултатът: ИИ „научава", че мъжките профили са за предпочитане. Понижава автобиографии, съдържащи думата <i>women</i> („women's chess club"), и завършилите женски колежи.</p>
+                  </div>
+
+        <!-- Slide — Закон на ЕС за ИИ: подход, основан на риска (от изданието 2026) -->
+        <div class="slide">
+            <h2>Законът на ЕС за ИИ — подход, основан на риска</h2>
+            <div class="tiers">
+                <div class="tier l1"><div class="th">Неприемлив риск — ЗАБРАНЕНО</div><div class="ts">разпознаване на емоции на работното място (чл. 5)</div></div>
+                <div class="tier l2"><div class="th">Висок риск — строго регулирано</div><div class="ts">скрининг, интервюта, оценка, повишения (Приложение III)</div></div>
+                <div class="tier l3"><div class="th">Ограничен риск — прозрачност</div><div class="ts">чатботове трябва да се представят като ИИ (чл. 50)</div></div>
+                <div class="tier l4"><div class="th">Минимален риск — без специфични задължения</div><div class="ts">спам филтри, оптимизация на графици</div></div>
+            </div>
+        </div>
+
+        <!-- Slide 11 — ОРЗД (GDPR): вторият слой (от изданието 2026) -->
+        <div class="slide">
+            <h2>ОРЗД (GDPR) — вторият слой</h2>
+            <p>Законът за ИИ не замества ОРЗД — <b>наслагва се върху него</b>. Ключови членове за ЧР:</p>
+            <ul>
+                <li><b>Чл. 22</b> — право да не бъдеш обект на <i>изцяло</i> автоматизирано решение със значимо въздействие (вж. CJEU C-634/21 „SCHUFA", 2023 г.).</li>
+                <li><b>Чл. 6 и чл. 9</b> — правно основание за обработване; изрично основание за специални данни (напр. здравни).</li>
+                <li><b>Чл. 5(1)(в)</b> — свеждане до минимум: не събирай данни, които не са ти нужни.</li>
+                <li><b>Чл. 13–15 · чл. 33 · чл. 37</b> — информиране и достъп; уведомяване при пробив до 72 часа; ДЛЗД.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12 — Допустимо и недопустимо (от изданието 2026) -->
+        <div class="slide">
+            <h2>Допустимо и недопустимо</h2>
+            <div class="matrix">
+                <div class="mcol">
+                    <h4>Допустимо</h4>
+                    <div class="mitem"><b>ИИ подпомага човека</b>Свежда 2 000 → 200, но рекрутерът лично решава.</div>
+                    <div class="mitem"><b>Обяснима оценка</b>Системата показва кои фактори и с каква тежест.</div>
+                    <div class="mitem"><b>Анализ на равенството в заплащането</b>Скоро задължителен (Директива 2023/970).</div>
+                </div>
+                <div class="mcol no">
+                    <h4>Недопустимо</h4>
+                    <div class="mitem"><b>Разпознаване на емоции при подбор</b>Забранено (чл. 5) — казусът HireVue.</div>
+                    <div class="mitem"><b>Напълно автоматизиран отказ</b>Нарушава чл. 22 ОРЗД и чл. 14.</div>
+                    <div class="mitem"><b>Скрит ИИ мониторинг</b>Нарушава чл. 5/13 ОРЗД — казусът Microsoft.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide — Практическа част -->
+        <div class="slide">
+            <h2>Практическа част</h2>
 
             <h3>Prompt за генериране на обява:</h3>
             <div class="code-box">
@@ -419,9 +601,16 @@
             <div class="code-box">
 "Description of a topic..."
             </div>
+
+            <h3>Създаване на собствен уебсайт:</h3>
+            <div class="code-box">
+"Създай едностраничен уебсайт за представяне на отдел „Човешки ресурси"
+на SoftwareBG с кратко описание, свободни позиции и форма за контакт.
+Модерен, чист дизайн в синя цветова гама."
+            </div>
         </div>
 
-        <!-- Slide 9 -->
+        <!-- Slide — Полезни ресурси (последен) -->
         <div class="slide">
             <h2>Полезни ресурси</h2>
             <ul>
